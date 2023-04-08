@@ -1,8 +1,17 @@
 class Solution {
 public:
     bool containsDuplicate(vector<int>& nums) {
-        std::set<int> numSet{ nums.begin(), nums.end() };
+        std::set<int> numSet;
         
-        return numSet.size() != nums.size();
+        for(const auto num : nums)
+        {
+            auto it = numSet.insert(num);
+            if(it.second == false)
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 };
