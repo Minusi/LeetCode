@@ -22,18 +22,18 @@ class Solution {
 public:
     vector<int> preorder(Node* root) {
         std::vector<int> result;
-        
         std::list<Node*> nodeStack;
+        if(root == nullptr)
+        {
+            return result;
+        }
+
 
         nodeStack.push_back(root);
         while(nodeStack.empty() == false)
         {
             auto node = nodeStack.back();
             nodeStack.pop_back();
-            if(node == nullptr)
-            {
-                continue;
-            }
 
             result.push_back(node->val);
             for(auto rit = node->children.rbegin(); rit != node->children.rend(); ++rit)
