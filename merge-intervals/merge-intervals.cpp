@@ -12,11 +12,11 @@ public:
 		std::sort(intervals.begin(), intervals.end(), lessRange);
 
 		int index = 0;
+		std::vector<int> elem;
+		elem.reserve(2);
 		while (index < intervals.size())
 		{
 			auto end = intervals[index][1];
-
-			std::vector<int> elem;
 			elem.push_back(intervals[index][0]);
 			index++;
 			while (index < intervals.size() && end >= intervals[index][0])
@@ -27,6 +27,7 @@ public:
 
 			elem.push_back(end);
 			result.push_back(elem);
+            elem.clear();
 		}
 
 		return result;
