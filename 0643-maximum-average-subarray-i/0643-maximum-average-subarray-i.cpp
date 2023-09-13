@@ -7,16 +7,22 @@ public:
         }
 
         long long sum = 0;
-        for (auto index = 0; index < k; ++index)
+        long double avr = 0;
+        for (auto index = 0; index < nums.size(); ++index)
         {
-            sum += nums[index];
-        }
-        long double avr = sum / static_cast<long double>(k);
-
-        for (auto index = 0; index + k < nums.size(); ++index)
-        {
-            sum = sum - nums[index] + nums[index + k];
-            avr = std::max(avr, sum / static_cast<long double>(k));
+            if (index < k)
+            {
+                sum += nums[index];
+                if (index == k - 1)
+                {
+                    avr = sum / static_cast<long double>(k);
+                }
+            }
+            else
+            {
+                sum = sum - nums[index - k] + nums[index];
+                avr = std::max(avr, sum / static_cast<long double>(k));
+            }
         }
 
         return avr;
