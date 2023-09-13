@@ -3,9 +3,9 @@ public:
     int largestAltitude(vector<int>& gain) {
         int maxSum = 0;
         int sum = 0;
-        for(auto delta : gain)
+        for(auto index = 0; index < gain.size(); ++index)
         {
-            sum += delta;
+            sum += gain[index];
             maxSum = std::max(maxSum, sum);
         }
 
