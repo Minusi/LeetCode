@@ -1,28 +1,25 @@
 class Solution {
 public:
     string removeStars(string s) {
-        list<char> result;
-        for (const auto& character : s)
+        char result[100001] = { 0, };
+        int insertPos = 0;
+
+        for (int index = 0; index < s.size(); ++index)
         {
-            if (character == '*')
+            if (s[index] == '*')
             {
-                if (result.empty() == false)
+                if (insertPos > 0)
                 {
-                    result.pop_back();
+                    result[--insertPos] = '\0';
                 }
             }
             else
             {
-                result.push_back(character);
+                result[insertPos++] = s[index];
             }
         }
 
-        std::stringstream ss;
-        for (const auto& character : result)
-        {
-            ss << character;
-        }
+        return result;
 
-        return ss.str();        
     }
 };
