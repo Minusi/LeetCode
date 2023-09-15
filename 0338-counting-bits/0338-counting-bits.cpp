@@ -1,7 +1,8 @@
 class Solution {
 public:
     vector<int> countBits(int n) {
-        std::vector<int> result;
+         std::vector<int> result;
+        result.reserve(n);
         result.push_back(0);
         if (n == 0) 
         {
