@@ -2,7 +2,6 @@ class Solution {
 public:
     vector<int> asteroidCollision(vector<int>& asteroids) {
         std::vector<int> result;
-        result.reserve(10000);
 
         for (auto asteroid : asteroids)
         {
